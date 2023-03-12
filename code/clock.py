@@ -63,7 +63,7 @@ class ClockHand(Group):
 
     def _calculate_points(self, length: int, width: int):
         """
-        Calculate the 4-point coordinates of the clock hand
+        Calculate the 4-point initial coordinates of the clock hand
 
         The rectangle with its centre of rotation at (0,0)
         which is an offset of half the width from the centre-left
