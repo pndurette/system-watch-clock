@@ -38,7 +38,7 @@ clock = Clock(
     x=int(display.width / 2),
     y=int(display.height / 2),
     hours=0,
-    minutes=0,
+    minutes=10,
     pixel_shader=clock_palette,
 )
 
@@ -56,22 +56,22 @@ from adafruit_debouncer import Debouncer
 pin_d11 = digitalio.DigitalInOut(board.D11)
 pin_d11.direction = digitalio.Direction.INPUT
 pin_d11.pull = digitalio.Pull.UP
-hour_plus = Debouncer(pin_d11, interval=0.05)
+hour_plus = Debouncer(pin_d11)
 
 pin_d12 = digitalio.DigitalInOut(board.D12)
 pin_d12.direction = digitalio.Direction.INPUT
 pin_d12.pull = digitalio.Pull.UP
-hour_minus = Debouncer(pin_d12, interval=0.05)
+hour_minus = Debouncer(pin_d12)
 
 pin_d14 = digitalio.DigitalInOut(board.D14)
 pin_d14.direction = digitalio.Direction.INPUT
 pin_d14.pull = digitalio.Pull.UP
-minutes_plus = Debouncer(pin_d14, interval=0.05)
+minutes_plus = Debouncer(pin_d14)
 
 pin_d15 = digitalio.DigitalInOut(board.D15)
 pin_d15.direction = digitalio.Direction.INPUT
 pin_d15.pull = digitalio.Pull.UP
-minutes_minus = Debouncer(pin_d15, interval=0.05)
+minutes_minus = Debouncer(pin_d15)
 
 while True:
     hour_plus.update()
@@ -79,19 +79,19 @@ while True:
     minutes_plus.update()
     minutes_minus.update()
 
-    if not hour_plus.value:
+    if hour_plus.fell:
         print("+1h")
         clock.hours += 1
 
-    if not hour_minus.value:
+    if hour_minus.fell:
         print("-1h")
         clock.hours -= 1
 
-    if not minutes_plus.value:
+    if minutes_plus.fell:
         print("+5m")
         clock.minutes += 5
 
-    if not minutes_minus.value:
+    if minutes_minus.fell:
         print("-5m")
         clock.minutes -= 5
 
