@@ -144,8 +144,8 @@ class Clock(Group):
         """
         A minimalist clock
 
-        Two ClockHands in a displayio Group representing to display time
-        plus an endcap (vectorio.Polygon) to join the two ClockHands
+        Two ClockHands in a displayio Group to display time
+        plus an "endcap" (vectorio.Polygon) to join the two ClockHands
         neatly in their centre.
 
         Args:
