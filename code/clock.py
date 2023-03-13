@@ -224,7 +224,7 @@ class Clock(Group):
 
     @property
     def hours(self):
-        return self.hours
+        return self._hours
 
     @hours.setter
     def hours(self, new_hours: int):
