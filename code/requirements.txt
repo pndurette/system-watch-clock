@@ -1,0 +1,2 @@
+adafruit_debouncer==2.0.5
+adafruit_ticks==1.0.9
