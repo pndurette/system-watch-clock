@@ -1,5 +1,5 @@
-import neopixel
 import board
+import neopixel
 
 PIXEL_COUNT = 4  # MagTag
 PIXELS = neopixel.NeoPixel(board.NEOPIXEL, PIXEL_COUNT, brightness=0.1)
