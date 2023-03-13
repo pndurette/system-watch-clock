@@ -1,7 +1,7 @@
 from math import cos, radians, sin
 
 from displayio import Group
-from vectorio import Circle, Polygon, Rectangle
+from vectorio import Polygon
 
 
 class ClockHand(Group):
